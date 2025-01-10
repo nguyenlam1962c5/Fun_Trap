@@ -1,4 +1,4 @@
-﻿/*
+﻿
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private bool moveLeft = false;
     private bool moveRight = false;
     private bool jump = false;
-    private bool holdJump = false;
 
     private void Awake()
     {
@@ -32,9 +31,6 @@ public class PlayerController : MonoBehaviour
             playerMovement.Jump();
             jump = false; // Reset trạng thái nhảy sau khi thực hiện
         }
-
-        // Truyền trạng thái giữ nút nhảy
-        playerMovement.HoldJump(holdJump);
     }
 
     // Các phương thức cho nút di chuyển trái
@@ -47,20 +43,18 @@ public class PlayerController : MonoBehaviour
 
     // Các phương thức cho nút nhảy
     public void OnJumpButtonDown() => jump = true; // Bắt đầu nhảy
-    public void OnJumpButtonHold() => holdJump = true; // Khi người dùng giữ nút nhảy
-    public void OnJumpButtonUp() => holdJump = false; // Khi người dùng thả nút nhảy
+
 }
-*/
+
+/*
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private PlayerMovement playerMovement;
-
     private bool moveLeft = false;
     private bool moveRight = false;
     private bool jump = false;
-    private bool holdJump = false;
 
     private void Awake()
     {
@@ -77,59 +71,29 @@ public class PlayerController : MonoBehaviour
 
         // Truyền dữ liệu vào PlayerMovement
         playerMovement.SetHorizontalInput(moveLeft ? -1f : moveRight ? 1f : 0f);
-        playerMovement.HoldJump(holdJump);
 
         // Thực hiện nhảy
         if (jump)
         {
             playerMovement.Jump();
-            jump = false; // Reset trạng thái nhảy sau khi thực hiện
+            jump = false;
         }
     }
 
-    // Xử lý đầu vào từ bàn phím và nút cảm ứng cho di chuyển
     private void HandleMovementInput()
     {
         // Input từ bàn phím
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // Di chuyển sang trái
-        {
-            moveLeft = true;
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // Di chuyển sang phải
-        {
-            moveRight = true;
-        }
-        else
-        {
-            moveLeft = false;
-            moveRight = false;
-        }
-
-        // Input từ nút cảm ứng (nếu có)
-        // Đảm bảo các sự kiện OnLeftButtonDown, OnLeftButtonUp, OnRightButtonDown, OnRightButtonUp được gắn đúng
+        moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+        moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
     }
 
-    // Xử lý nhảy từ bàn phím hoặc nút cảm ứng
     private void HandleJumpInput()
     {
         // Nhảy với bàn phím
-        if (Input.GetKeyDown(KeyCode.Space)) // Nếu nhấn Space
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            jump = true; // Thực hiện nhảy
+            jump = true;
         }
-
-        // Giữ nút nhảy
-        if (Input.GetKey(KeyCode.Space)) // Nếu đang giữ Space
-        {
-            holdJump = true;
-        }
-        else
-        {
-            holdJump = false;
-        }
-
-        // Xử lý nút cảm ứng (nếu có)
-        // Đảm bảo các sự kiện OnJumpButtonDown, OnJumpButtonHold, OnJumpButtonUp được gắn đúng
     }
 
     // Các phương thức cho nút di chuyển trái
@@ -140,8 +104,7 @@ public class PlayerController : MonoBehaviour
     public void OnRightButtonDown() => moveRight = true;
     public void OnRightButtonUp() => moveRight = false;
 
-    // Các phương thức cho nút nhảy
-    public void OnJumpButtonDown() => jump = true; // Bắt đầu nhảy
-    public void OnJumpButtonHold() => holdJump = true; // Khi người dùng giữ nút nhảy
-    public void OnJumpButtonUp() => holdJump = false; // Khi người dùng thả nút nhảy
+    // Phương thức cho nút nhảy
+    public void OnJumpButtonDown() => jump = true;
 }
+*/

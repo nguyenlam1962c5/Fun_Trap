@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 481021467160599388}
   - component: {fileID: 4805063566520083554}
   - component: {fileID: 2675434769229243210}
-  - component: {fileID: 6129249188823018608}
+  - component: {fileID: -6090172979378467938}
   m_Layer: 3
   m_Name: Mario
   m_TagString: Player
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24548734df259994b91de06d154a0d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6129249188823018608
+--- !u!114 &-6090172979378467938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,13 +151,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 481021467160599391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23b9181b4b61d3d4aa08a3993c1e0a5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 94e5e9beeac24034db975a23d4dccfca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapTags:
-  - trap
-  - trap02
-  - trap03
+  sceneToLoad: 
+  point1: {x: 0, y: 0}
+  point2: {x: 0, y: 0}
 --- !u!1 &5124379530577450358
 GameObject:
   m_ObjectHideFlags: 0
