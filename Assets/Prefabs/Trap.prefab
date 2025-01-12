@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8427832580400508637}
   - component: {fileID: -7987741516848007049}
-  - component: {fileID: 5573055190259508387}
+  - component: {fileID: 978149692731659169}
   - component: {fileID: 5007431944789325650}
   - component: {fileID: 5644007275250484438}
   m_Layer: 0
@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161507419175872354}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 8, z: 1}
+  m_LocalRotation: {x: -0, y: -0.9774396, z: -0, w: 0.21121533}
+  m_LocalPosition: {x: 0.039515, y: 0.634, z: 0}
+  m_LocalScale: {x: 3.89392, y: 7.78784, z: 0.97348}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -155.613, z: 0}
 --- !u!212 &-7987741516848007049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,8 +87,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &5573055190259508387
-CapsuleCollider2D:
+--- !u!68 &978149692731659169
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -100,9 +100,18 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0050949156, y: -0.047227677}
-  m_Size: {x: 0.13517752, y: 0.07673418}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.045035336, y: 0.060036156}
+  - {x: 0.08757993, y: -0.009949691}
+  - {x: -0.08324347, y: -0.009975306}
+  - {x: -0.04487923, y: 0.06002965}
+  - {x: 0.044948176, y: 0.06002162}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!114 &5007431944789325650
 MonoBehaviour:
   m_ObjectHideFlags: 0

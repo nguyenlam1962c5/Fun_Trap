@@ -1,87 +1,108 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class Trap03 : TrapBase
 {
-    public float speed = 1f;
-    public float distance = 5f;
-    public string moveDirection = "up";
-    public bool startMovingImmediately = true;
-    public int numberOfCycles = 2;  // Number of complete movement cycles
-    public float delayBetweenCycles = 0.5f;  // Delay between cycles in seconds
+    [Header("Movement Settings")]
+    public Vector2 targetPosition;
+    public float moveSpeed = 5f;
 
-    private Vector2 startPosition;
-    private Vector2 moveVector;
-    private bool isMoving;
-    private int currentCycle = 0;
-    private Coroutine cycleCoroutine;
+    [Header("Second Movement (Optional)")]
+    public bool useSecondMovement = false;
+    public float delayBeforeSecondMove = 0f;
+    public Vector2 secondTargetPosition;
+
+    private Rigidbody2D rb2d;
+    private bool isMoving = false;
 
     private void Start()
     {
-        startPosition = transform.position;
-        moveVector = GetMoveDirection();
-
-        if (startMovingImmediately)
+        rb2d = GetComponent<Rigidbody2D>();
+        if (rb2d != null)
         {
-            InitiateMovement();
+            // Khóa rotation của Rigidbody2D
+            rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+            // Đặt gravity scale = 0 để không bị rơi
+            rb2d.gravityScale = 0f;
         }
     }
 
-    public override void HandleTrap(Vector2 playerPosition, TrapControl trapControl, System.Action onComplete)
+    public void SetMovementTarget(Vector2 target)
     {
-        if (!startMovingImmediately && !isMoving && isVisible && trapControl.IsPlayerInZone(playerPosition))
+        targetPosition = target;
+    }
+
+    public void SetSecondMovementTarget(Vector2 target, float delay)
+    {
+        secondTargetPosition = target;
+        delayBeforeSecondMove = delay;
+        useSecondMovement = true;
+    }
+
+    public void DisableSecondMovement()
+    {
+        useSecondMovement = false;
+    }
+
+    public override void Activate(float duration = 0f)
+    {
+        base.Activate(duration);
+        if (isActivated && !isMoving)
         {
-            InitiateMovement();
-            onComplete?.Invoke();
+            StartCoroutine(MoveToTarget());
         }
     }
 
-    private void InitiateMovement()
+    private IEnumerator MoveToTarget()
     {
-        if (!isMoving)
+        isMoving = true;
+
+        // Di chuyển đến vị trí đầu tiên
+        Vector3 initialTarget = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
+        while (Vector3.Distance(transform.position, initialTarget) > 0.01f)
         {
-            isMoving = true;
-            currentCycle = 0;
-            cycleCoroutine = StartCoroutine(ExecuteMovementCycles());
+            if (rb2d != null)
+            {
+                // Sử dụng MovePosition thay vì thay đổi transform trực tiếp
+                Vector2 newPos = Vector2.MoveTowards(rb2d.position, initialTarget, moveSpeed * Time.fixedDeltaTime);
+                rb2d.MovePosition(newPos);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position,
+                                                       initialTarget,
+                                                       moveSpeed * Time.deltaTime);
+            }
+            yield return null;
         }
-    }
 
-    private IEnumerator ExecuteMovementCycles()
-    {
-        while (currentCycle < numberOfCycles)
+        if (useSecondMovement)
         {
-            // Forward movement
-            MoveObject(moveVector, speed, distance);
-            yield return new WaitForSeconds(distance / speed + delayBetweenCycles);
+            // Đảm bảo delay hoạt động đúng
+            if (delayBeforeSecondMove > 0)
+            {
+                yield return new WaitForSeconds(delayBeforeSecondMove);
+            }
 
-            // Return movement
-            MoveObject(-moveVector, speed, distance);
-            yield return new WaitForSeconds(distance / speed + delayBetweenCycles);
-
-            currentCycle++;
+            // Di chuyển đến vị trí thứ hai
+            Vector3 secondTarget = new Vector3(secondTargetPosition.x, secondTargetPosition.y, transform.position.z);
+            while (Vector3.Distance(transform.position, secondTarget) > 0.01f)
+            {
+                if (rb2d != null)
+                {
+                    Vector2 newPos = Vector2.MoveTowards(rb2d.position, secondTarget, moveSpeed * Time.fixedDeltaTime);
+                    rb2d.MovePosition(newPos);
+                }
+                else
+                {
+                    transform.position = Vector3.MoveTowards(transform.position,
+                                                           secondTarget,
+                                                           moveSpeed * Time.deltaTime);
+                }
+                yield return null;
+            }
         }
 
         isMoving = false;
-    }
-
-    private Vector2 GetMoveDirection()
-    {
-        switch (moveDirection.ToLower())
-        {
-            case "up": return Vector2.up;
-            case "down": return Vector2.down;
-            case "left": return Vector2.left;
-            case "right": return Vector2.right;
-            default: return Vector2.zero;
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (cycleCoroutine != null)
-        {
-            StopCoroutine(cycleCoroutine);
-        }
     }
 }

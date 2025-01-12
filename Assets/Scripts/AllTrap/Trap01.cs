@@ -1,36 +1,31 @@
-﻿
+﻿// Trap01.cs
+using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Trap01 : TrapBase
 {
-    public bool permanent = true; // Trap có hiển thị vĩnh viễn không
-    public float duration = 0f;   // Thời gian hiển thị (nếu không vĩnh viễn)
+    private SpriteRenderer spriteRenderer;
 
-    public override void HandleTrap(Vector2 playerPosition, TrapControl trapControl, System.Action onComplete)
+    private void Start()
     {
-        if (!isVisible && trapControl.IsPlayerInZone(playerPosition))
-        {
-            SetVisibility(true);
-            isVisible = true;
-
-            if (!permanent && duration > 0)
-            {
-                StartCoroutine(HideTrapAfterDuration(duration, onComplete));
-            }
-            else
-            {
-                onComplete?.Invoke();
-            }
-        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
     }
 
-    private IEnumerator HideTrapAfterDuration(float duration, System.Action onComplete)
+    public override void Activate(float duration = 0f)
     {
-        yield return new WaitForSeconds(duration);
-        SetVisibility(false);
-        isVisible = false;
-        onComplete?.Invoke();
+        base.Activate(duration);
+        spriteRenderer.enabled = true;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (!isActivated && !isPermanent)
+        {
+            spriteRenderer.enabled = false;
+        }
     }
 }

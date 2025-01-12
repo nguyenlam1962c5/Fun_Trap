@@ -8,6 +8,7 @@ TagManager:
   - trap02
   - trap03
   - trap04
+  - trap01
   layers:
   - Default
   - TransparentFX

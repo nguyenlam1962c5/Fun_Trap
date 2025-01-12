@@ -1,64 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
-public abstract class TrapBase : MonoBehaviour
+public class TrapBase : MonoBehaviour
 {
-    public bool isVisible = false; // Trạng thái hiển thị của bẫy
+    protected bool isActivated = false;
+    protected float duration = 0f;
+    protected bool isPermanent = true;
+    protected float timer = 0f;
 
-    public abstract void HandleTrap(Vector2 playerPosition, TrapControl trapControl, Action customAction);
+    public virtual void Initialize() { }
 
-    public void SetVisibility(bool visible)
+    public virtual void Activate(float duration = 0f)
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        // Chỉ kích hoạt nếu trap chưa được kích hoạt
+        if (!isActivated)
         {
-            spriteRenderer.enabled = visible;
-        }
-
-        Collider2D[] colliders = GetComponents<Collider2D>();
-        foreach (Collider2D collider in colliders)
-        {
-            collider.enabled = visible;
-        }
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            if (!visible)
-            {
-                rb.Sleep();
-            }
-            else
-            {
-                rb.WakeUp();
-            }
+            isActivated = true;
+            this.duration = duration;
+            isPermanent = (duration <= 0f);
+            timer = 0f;
         }
     }
 
-    // Phương thức mới di chuyển vật thể
-    public void MoveObject(Vector2 direction, float speed, float distance)
+    protected virtual void Update()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (isActivated && !isPermanent)
         {
-            rb.velocity = direction.normalized * speed;
-            // Cần giới hạn di chuyển theo khoảng cách
-            // (sử dụng một coroutine để dừng sau khi đi được khoảng cách)
-            rb.velocity = direction.normalized * speed;
-            StartCoroutine(StopMovementAfterDistance(rb, direction, distance));
+            timer += Time.deltaTime;
+            if (timer >= duration)
+            {
+                isActivated = false;
+                timer = 0f;
+            }
         }
-    }
-
-    private IEnumerator StopMovementAfterDistance(Rigidbody2D rb, Vector2 direction, float distance)
-    {
-        float distanceTraveled = 0f;
-        while (distanceTraveled < distance)
-        {
-            distanceTraveled += rb.velocity.magnitude * Time.deltaTime;
-            yield return null;
-        }
-        rb.velocity = Vector2.zero; // Dừng lại sau khi di chuyển đủ khoảng cách
     }
 }

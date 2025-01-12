@@ -1474,6 +1474,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6090172979378467938, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
+      propertyPath: point1.x
+      value: 8.66
+      objectReference: {fileID: 0}
+    - target: {fileID: -6090172979378467938, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
+      propertyPath: point1.y
+      value: -3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -6090172979378467938, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
+      propertyPath: point2.x
+      value: 9.33
+      objectReference: {fileID: 0}
+    - target: {fileID: -6090172979378467938, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
+      propertyPath: point2.y
+      value: -1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: -6090172979378467938, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
+      propertyPath: sceneToLoad
+      value: 002
+      objectReference: {fileID: 0}
     - target: {fileID: 481021467160599388, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1500,11 +1520,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 481021467160599389, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.907644
+      value: -9.12
       objectReference: {fileID: 0}
     - target: {fileID: 481021467160599389, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2905726
+      value: -3.29
       objectReference: {fileID: 0}
     - target: {fileID: 481021467160599389, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1541,10 +1561,6 @@ PrefabInstance:
     - target: {fileID: 481021467160599391, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_Name
       value: Mario
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7156010079219542670, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_Enabled

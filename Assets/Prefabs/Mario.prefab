@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 481021467160599388}
   - component: {fileID: 4805063566520083554}
   - component: {fileID: 2675434769229243210}
+  - component: {fileID: -10728170568838883}
   - component: {fileID: -6090172979378467938}
   m_Layer: 3
   m_Name: Mario
@@ -114,8 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  maxJumpHeight: 3.6
-  maxJumpTime: 0.75
+  maxJumpHeight: 4.5
+  maxJumpTime: 1
 --- !u!114 &4805063566520083554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24548734df259994b91de06d154a0d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-10728170568838883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481021467160599391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64341cf7199b5e743a96cae9e29ccab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-6090172979378467938
