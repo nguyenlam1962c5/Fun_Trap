@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 978149692731659169}
   - component: {fileID: 5007431944789325650}
   - component: {fileID: 5644007275250484438}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,5 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab63fdf418d3de47a1836a4eb5843bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowerLeftCorner: {x: 0, y: 0}
-  upperRightCorner: {x: 0, y: 0}
+  sensorPoint1: {x: 0, y: 0}
+  sensorPoint2: {x: 0, y: 0}
+  trapTag: 
+  playerTag: Player

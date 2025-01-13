@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 6441841789286464594}
   - component: {fileID: 5957530787068130654}
   - component: {fileID: 6056980602176134203}
-  - component: {fileID: 2482177193003119388}
-  - component: {fileID: 2756426929056559725}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Untagged
@@ -113,36 +111,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2482177193003119388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507426990881010969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb6434a9b82fac34c854a326b20307fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  emptyBlock: {fileID: 21300000, guid: 0c057401fbf74454fa3032deae7f0a61, type: 3}
-  maxHits: -1
---- !u!114 &2756426929056559725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507426990881010969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 923d2c55cb0c32c4c9516c0b35f70c62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lowerLeftCorner: {x: 0, y: 0}
-  upperRightCorner: {x: 0, y: 0}
-  permanentForTrap: 1
-  trapDuration: 0
-  permanentForTrap02: 0
-  trap02Duration: 3

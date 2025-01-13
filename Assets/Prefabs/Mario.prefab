@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  maxJumpHeight: 4.5
+  maxJumpHeight: 5
   maxJumpTime: 1
 --- !u!114 &4805063566520083554
 MonoBehaviour:
