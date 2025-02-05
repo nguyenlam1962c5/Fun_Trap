@@ -33,7 +33,7 @@ public class TrapControl : MonoBehaviour
         trapScript = trapObject.GetComponent<TrapBase>();
         if (trapScript == null)
         {
-            Debug.LogError($"TrapControl trên GameObject {gameObject.name}: GameObject với tag '{trapTag}' không có script TrapBase!");
+            //Debug.LogError($"TrapControl trên GameObject {gameObject.name}: GameObject với tag '{trapTag}' không có script TrapBase!");
             enabled = false;
             return;
         }
