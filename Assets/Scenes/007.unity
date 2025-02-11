@@ -1453,8 +1453,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensorPoint1: {x: 4.75, y: 2}
   sensorPoint2: {x: 6, y: 3}
-  trapTag: trap03
+  targetTrap: {fileID: 0}
   playerTag: Player
+  activationDelay: 0
 --- !u!1 &1399331176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,6 +2622,10 @@ PrefabInstance:
       propertyPath: trapTag
       value: trap03
       objectReference: {fileID: 0}
+    - target: {fileID: 5644007275250484438, guid: 9a63a8b9200edfe408da78198b60be81, type: 3}
+      propertyPath: targetTrap
+      value: 
+      objectReference: {fileID: 2098945739}
     - target: {fileID: 5644007275250484438, guid: 9a63a8b9200edfe408da78198b60be81, type: 3}
       propertyPath: sensorPoint1.x
       value: -7.87

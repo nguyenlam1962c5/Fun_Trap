@@ -1628,6 +1628,10 @@ PrefabInstance:
       value: trap01
       objectReference: {fileID: 0}
     - target: {fileID: 5644007275250484438, guid: 9a63a8b9200edfe408da78198b60be81, type: 3}
+      propertyPath: targetTrap
+      value: 
+      objectReference: {fileID: 954014579}
+    - target: {fileID: 5644007275250484438, guid: 9a63a8b9200edfe408da78198b60be81, type: 3}
       propertyPath: sensorPoint1.x
       value: 4.55
       objectReference: {fileID: 0}

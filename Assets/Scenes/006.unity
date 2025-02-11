@@ -153,8 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensorPoint1: {x: 2.81, y: -2.29}
   sensorPoint2: {x: 4.2, y: -0.61}
-  trapTag: trap01
+  targetTrap: {fileID: 98021967}
   playerTag: Player
+  activationDelay: 0
 --- !u!1001 &188475679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1807,8 +1808,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensorPoint1: {x: 2.27, y: -4.26}
   sensorPoint2: {x: 2.86, y: -3.21}
-  trapTag: trap03
+  targetTrap: {fileID: 0}
   playerTag: Player
+  activationDelay: 0
 --- !u!114 &1758251163
 MonoBehaviour:
   m_ObjectHideFlags: 0
