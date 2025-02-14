@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flatSprite: {fileID: 0}
-  canBeKilledByJump: 1
+  canBeKilledByJump: 0
 --- !u!95 &1818268645257775220
 Animator:
   serializedVersion: 5

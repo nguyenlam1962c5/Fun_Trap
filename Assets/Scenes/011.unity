@@ -445,11 +445,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 481021467160599389, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.21
+      value: -8.25
       objectReference: {fileID: 0}
     - target: {fileID: 481021467160599389, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.6
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 481021467160599389, guid: d83a5e7863a8afc4faee91819fff1fa7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1803,6 +1803,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8708055343341185298, guid: beca288dbde97944aae4ac2447ffa160, type: 3}
+      propertyPath: canBeKilledByJump
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beca288dbde97944aae4ac2447ffa160, type: 3}
 --- !u!1 &958676064 stripped
@@ -2137,6 +2141,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6662253436860551135, guid: beca288dbde97944aae4ac2447ffa160, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708055343341185298, guid: beca288dbde97944aae4ac2447ffa160, type: 3}
+      propertyPath: canBeKilledByJump
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2989,6 +2997,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6662253436860551135, guid: beca288dbde97944aae4ac2447ffa160, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708055343341185298, guid: beca288dbde97944aae4ac2447ffa160, type: 3}
+      propertyPath: canBeKilledByJump
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
